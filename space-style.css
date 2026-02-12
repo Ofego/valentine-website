@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(180deg, #000000 0%, #0a0015 30%, #1a0033 60%, #2d1b4e 100%);
+    position: relative;
+    color: #ffffff;
+}
+
+/* Starfield Canvas */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Particles Canvas */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Portal Canvas */
+#portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#portal.active {
+    opacity: 1;
+}
+
+/* Nebula Effects */
+.nebula {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: nebulaPulse 8s ease-in-out infinite;
+}
+
+.nebula-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    z-index: 1;
+}
+
+.nebula-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(75, 0, 130, 0.3) 0%, transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    z-index: 1;
+    animation-delay: 2s;
+}
+
+.nebula-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation-delay: 4s;
+}
+
+@keyframes nebulaPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.25;
+    }
+}
+
+/* Content Container */
+.content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Heart Constellation */
+.heart-constellation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeInConstellation 2s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInConstellation {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Message Container */
+.message-container,
+.confirmation-container {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 4;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Typography */
+.cosmic-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.glow-text {
+    background: linear-gradient(135deg, #ffffff 0%, #e0c3fc 50%, #8ec5fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(142, 197, 252, 0.5));
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(142, 197, 252, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 30px rgba(142, 197, 252, 0.8));
+    }
+}
+
+.cosmic-message {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.highlight {
+    color: #e0c3fc;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(224, 195, 252, 0.6);
+}
+
+.question {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin: 50px 0 60px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* Cosmic Button */
+.cosmic-button {
+    position: relative;
+    padding: 20px 50px;
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid rgba(142, 197, 252, 0.5);
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    letter-spacing: 1px;
+}
+
+.button-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(142, 197, 252, 0.2) 0%, rgba(224, 195, 252, 0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.cosmic-button:hover .button-glow {
+    opacity: 1;
+}
+
+.cosmic-button:hover {
+    border-color: rgba(142, 197, 252, 0.9);
+    box-shadow: 0 0 30px rgba(142, 197, 252, 0.4),
+        inset 0 0 20px rgba(142, 197, 252, 0.1);
+    transform: translateY(-2px);
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Celebration Styles */
+.celebration-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.constellation-symbol {
+    font-size: 4rem;
+    margin: 40px 0;
+    animation: symbolPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes symbolPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.celebration-message {
+    font-size: 1.4rem;
+    line-height: 2.2;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 40px 0;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.cosmic-signature {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-top: 60px;
+    font-style: italic;
+    color: #e0c3fc;
+    text-shadow: 0 0 20px rgba(224, 195, 252, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cosmic-title {
+        font-size: 2.5rem;
+    }
+
+    .cosmic-message {
+        font-size: 1.1rem;
+    }
+
+    .question {
+        font-size: 2rem;
+    }
+
+    .cosmic-button {
+        padding: 16px 40px;
+        font-size: 1.1rem;
+    }
+
+    .celebration-title {
+        font-size: 2.5rem;
+    }
+
+    .celebration-message {
+        font-size: 1.2rem;
+    }
+
+    .heart-constellation {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cosmic-title {
+        font-size: 2rem;
+    }
+
+    .question {
+        font-size: 1.6rem;
+    }
+
+    .cosmic-button {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holographic Transmission - Valentine Message 💙</title>
+    <link rel="stylesheet" href="holographic-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="scan-lines"></div>
+    <div class="vignette"></div>
+
+    <canvas id="particleCanvas"></canvas>
+    <canvas id="bloomCanvas"></canvas>
+
+    <div class="hologram-container">
+        <div class="transmission-header" id="transmissionHeader">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">TRANSMISSION ACTIVE</span>
+            </div>
+            <div class="signal-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+
+        <div class="content-wrapper" id="contentWrapper">
+            <div class="glitch-container" id="glitchContainer">
+                <h1 class="holographic-title" data-text="INCOMING MESSAGE">
+                    <span class="glitch-text">INCOMING MESSAGE</span>
+                </h1>
+            </div>
+
+            <div class="message-box" id="messageBox">
+                <div class="hologram-lines"></div>
+
+                <div class="message-content" id="messageContent">
+                    <p class="transmission-text" id="line1">
+                        <span class="bracket">[</span> SYSTEM ANALYSIS COMPLETE <span class="bracket">]</span>
+                    </p>
+                    <p class="transmission-text" id="line2">
+                        <span class="bracket">[</span> SCANNING INFINITE TIMELINES <span class="bracket">]</span>
+                    </p>
+                    <p class="transmission-text" id="line3">
+                        <span class="bracket">[</span> RESULT: ACROSS ALL POSSIBILITIES <span class="bracket">]</span>
+                    </p>
+                    <p class="main-message" id="mainMessage">
+                        You are the one constant<br>
+                        that makes existence meaningful.
+                    </p>
+                    <p class="transmission-text" id="line4">
+                        <span class="bracket">[</span> PROBABILITY OF COMPATIBILITY: 100% <span class="bracket">]</span>
+                    </p>
+                </div>
+
+                <div class="question-container" id="questionContainer">
+                    <h2 class="holographic-question">
+                        <span class="glow-text">Will you be my Valentine?</span>
+                    </h2>
+                </div>
+
+                <button class="holographic-button" id="confirmButton">
+                    <span class="button-inner">
+                        <span class="button-icon">◆</span>
+                        <span class="button-label">CONFIRM TRANSMISSION</span>
+                        <span class="button-icon">◆</span>
+                    </span>
+                    <span class="button-glow"></span>
+                </button>
+            </div>
+
+            <div class="confirmation-screen hidden" id="confirmationScreen">
+                <div class="success-icon" id="successIcon">✓</div>
+                <h1 class="success-title">
+                    <span class="glow-text">TRANSMISSION RECEIVED</span>
+                </h1>
+                <div class="success-message">
+                    <p class="transmission-text">
+                        <span class="bracket">[</span> CONNECTION ESTABLISHED <span class="bracket">]</span>
+                    </p>
+                    <p class="success-main">
+                        Our signals are now synchronized.<br>
+                        Two hearts, one frequency.<br>
+                        <span class="highlight">Forever transmitting love.</span>
+                    </p>
+                    <p class="transmission-text">
+                        <span class="bracket">[</span> STATUS: ETERNALLY CONNECTED <span class="bracket">]</span>
+                    </p>
+                </div>
+                <div class="signature">
+                    &lt; Yours across all frequencies 💙 /&gt;
+                </div>
+                <div class="screenshot-instruction">
+                    <p class="instruction-text">
+                        📸 Take a screenshot and send it to me!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="transmission-footer">
+            <div class="timestamp" id="timestamp">TIMESTAMP: LOADING...</div>
+            <div class="encryption">ENCRYPTION: ❤️ QUANTUM ENTANGLED</div>
+        </div>
+    </div>
+
+    <script src="holographic-script.js"></script>
+</body>
+
+</html>
