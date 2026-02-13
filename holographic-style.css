@@ -579,65 +579,197 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .holographic-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        /* Increased from 2rem */
         letter-spacing: 4px;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .message-box {
+        padding: 40px 25px;
+        /* Increased from 30px 20px */
+        margin: 20px 15px;
+    }
+
+    .transmission-text {
+        font-size: 0.8rem;
+        /* Increased from 0.75rem */
+        letter-spacing: 1.5px;
+        margin: 20px 0;
+        /* Increased from 15px */
+    }
+
+    .main-message {
+        font-size: 1.5rem;
+        /* Increased from 1.4rem */
+        line-height: 2;
+        margin: 50px 0;
+        /* Increased vertical breathing room */
+        padding: 0 10px;
+    }
+
+    .holographic-question {
+        font-size: 1.6rem;
+        /* Increased from 1.5rem */
+        letter-spacing: 2px;
+        line-height: 1.4;
+    }
+
+    .holographic-button {
+        padding: 18px 40px;
+        /* Increased from 14px 30px */
+        font-size: 1rem;
+        /* Increased from 0.9rem */
+        min-height: 56px;
+        /* Ensures proper touch target */
+        width: auto;
+        max-width: 90%;
+    }
+
+    .transmission-footer {
+        flex-direction: column;
+        gap: 15px;
+        /* Increased from 10px */
+        text-align: center;
+        padding: 20px 15px;
+        font-size: 0.75rem;
+    }
+
+    .success-title {
+        font-size: 2rem;
+        /* Increased from 1.8rem */
+        line-height: 1.3;
+    }
+
+    .success-main {
+        font-size: 1.4rem;
+        /* Increased from 1.3rem */
+        line-height: 2.2;
+        /* More breathing room */
+        padding: 0 10px;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+        margin-bottom: 25px;
+    }
+
+    /* Better content wrapper spacing */
+    .content-wrapper {
+        padding: 30px 0;
+        min-height: auto;
+    }
+
+    /* Improve header spacing */
+    .transmission-header {
+        padding: 15px;
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .status-indicator {
+        font-size: 0.75rem;
+    }
+
+    /* Optimize confirmation screen */
+    .confirmation-screen {
+        padding: 0 15px;
+    }
+
+    .success-message {
+        padding: 30px 20px;
+    }
+
+    .screenshot-instruction {
+        margin-top: 25px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .holographic-title {
+        font-size: 1.8rem;
+        /* Increased from 1.5rem */
+        letter-spacing: 2px;
+        padding: 0 15px;
+    }
+
+    .transmission-header {
+        padding: 12px;
+    }
+
+    .status-text {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    .holographic-question {
+        font-size: 1.4rem;
+        /* Increased from 1.2rem */
+        padding: 0 10px;
+    }
+
+    .button-inner {
+        gap: 10px;
+        /* Increased from 8px */
+        flex-wrap: nowrap;
+    }
+
+    .main-message {
+        font-size: 1.3rem;
+        line-height: 2;
     }
 
     .message-box {
         padding: 30px 20px;
     }
 
-    .transmission-text {
-        font-size: 0.75rem;
+    /* Make signal bars more visible */
+    .signal-bars {
+        gap: 3px;
     }
 
-    .main-message {
-        font-size: 1.4rem;
+    .bar {
+        width: 3px;
     }
 
-    .holographic-question {
-        font-size: 1.5rem;
-    }
-
-    .holographic-button {
-        padding: 14px 30px;
-        font-size: 0.9rem;
-    }
-
-    .transmission-footer {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .success-title {
-        font-size: 1.8rem;
-    }
-
-    .success-main {
-        font-size: 1.3rem;
+    /* Optimize glitch container */
+    .glitch-container {
+        margin-bottom: 30px;
     }
 }
 
-@media (max-width: 480px) {
+/* Landscape mobile optimization */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hologram-container {
+        padding: 20px 15px;
+    }
+
+    .content-wrapper {
+        padding: 20px 0;
+    }
+
+    .message-box {
+        padding: 30px 25px;
+    }
+
+    .main-message {
+        margin: 30px 0;
+        font-size: 1.3rem;
+    }
+
+    .question-container {
+        margin: 25px 0;
+    }
+
     .holographic-title {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
+        font-size: 1.8rem;
     }
 
-    .transmission-header {
-        padding: 15px;
-    }
-
-    .status-text {
-        font-size: 0.7rem;
-    }
-
-    .holographic-question {
-        font-size: 1.2rem;
-    }
-
-    .button-inner {
-        gap: 8px;
+    .transmission-header,
+    .transmission-footer {
+        padding: 12px 15px;
     }
 }

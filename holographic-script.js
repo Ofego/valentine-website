@@ -59,16 +59,41 @@ class Spark {
     }
 }
 
-const sparks = Array.from({ length: 50 }, () => new Spark());
+// Detect mobile devices and optimize particle counts
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+const MOBILE_SPARK_COUNT = 20; // Reduced from 50
+const DESKTOP_SPARK_COUNT = 50;
+const MOBILE_BLOOM_PARTICLES = 15; // Reduced from 30
+const DESKTOP_BLOOM_PARTICLES = 30;
+
+const sparks = Array.from({ length: isMobile ? MOBILE_SPARK_COUNT : DESKTOP_SPARK_COUNT }, () => new Spark());
 let sparkAnimationId = null; // Track spark animation frame ID
 
-function animateSparks() {
-    particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+// Throttle canvas rendering on mobile
+let lastRenderTime = 0;
+const MOBILE_FPS = 30; // Limit to 30fps on mobile
+const MOBILE_FRAME_INTERVAL = 1000 / MOBILE_FPS;
 
-    sparks.forEach(spark => {
-        spark.update();
-        spark.draw();
-    });
+function shouldRenderFrame() {
+    if (!isMobile) return true;
+
+    const now = Date.now();
+    if (now - lastRenderTime >= MOBILE_FRAME_INTERVAL) {
+        lastRenderTime = now;
+        return true;
+    }
+    return false;
+}
+
+function animateSparks() {
+    if (shouldRenderFrame()) {
+        particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+        sparks.forEach(spark => {
+            spark.update();
+            spark.draw();
+        });
+    }
 
     sparkAnimationId = requestAnimationFrame(animateSparks);
 }
@@ -282,6 +307,19 @@ confirmButton.addEventListener('mouseenter', () => {
         sparks.push(spark);
     }
 });
+
+// Add touch feedback for mobile
+if (isMobile) {
+    confirmButton.addEventListener('touchstart', function () {
+        this.style.transform = 'translateY(0)';
+    });
+
+    confirmButton.addEventListener('touchend', function () {
+        if (!this.disabled) {
+            this.style.transform = 'translateY(-2px)';
+        }
+    });
+}
 
 // Global cleanup function
 function stopAllAnimations() {
