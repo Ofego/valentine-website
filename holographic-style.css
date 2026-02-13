@@ -661,12 +661,17 @@ body {
         min-height: auto;
     }
 
-    /* Improve header spacing */
+    /* Improve header spacing - stack vertically on mobile */
     .transmission-header {
         padding: 15px;
         font-size: 0.75rem;
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-direction: column;
+        /* Stack vertically */
+        align-items: center;
+        /* Center align */
+        gap: 15px;
+        /* Increased gap for vertical layout */
+        text-align: center;
     }
 
     .status-indicator {
